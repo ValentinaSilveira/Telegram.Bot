@@ -1,9 +1,38 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
+using Telegram.Bot.Extensions.Polling;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
+
+
 
 namespace Library
 {
-    public class Bot
+    public class BotRun
     {
+        /// <summary>
+        /// La instancia del bot.
+        /// </summary>
+        private static TelegramBotClient Bot;
+
+        /// <summary>
+        /// El token provisto por Telegram al crear el bot.
+        ///
+        /// *Importante*:
+        /// Para probar este ejemplo, crea un bot nuevo y eeemplaza este 
+        /// token por el de tu bot.
+        /// </summary>
+        private static string Token = "1214554557:AAFMAslDQ-QTW7lKVaYE-SQ1LgiPp1SAvhs";
+
+        /// <summary>
+        /// Punto de entrada.
+        /// </summary>
+
         /// <summary>
         /// Maneja las actualizaciones del bot (todo lo que llega), incluyendo
         /// mensajes, ediciones de mensajes, respuestas a botones, etc. En este
