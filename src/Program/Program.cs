@@ -8,7 +8,7 @@ using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.InputFiles;
-using Library;
+using CompAndDel.Filters;
 
 namespace Telegram.Bot.Examples.Echo
 {
@@ -109,6 +109,11 @@ namespace Telegram.Bot.Examples.Echo
                 default: 
                     response = "Disculpa, no se qué hacer con ese mensaje!";
                     break;
+            }
+
+            if(message.Photo[0].FileId.Length > 0)
+            {
+                
             }
 
             // enviamos el texto de respuesta
